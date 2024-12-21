@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blog Application with AI Summarization
+
+This is a full-stack blog application that enables users to create, read, update, and delete (CRUD) blog posts. Additionally, it features an AI-powered blog post summarization feature.
+
+## Features
+
+- **CRUD Functionality:** Manage blog posts with ease.
+- **AI Integration:** Automatic generation of blog post summaries using GPT-based summarization.
+- **Modern UI/UX:** Responsive interface built with Next.js and styled for user engagement.
+- **API Endpoints:** Seamless backend communication for data handling.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+Ensure you have the following installed on your system:
+- **Node.js** (v14.x or later)
+- **npm** (v6.x or later)
+- **MongoDB** or any preferred database.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/yourproject.git
+   cd yourproject
+   ```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Blog Endpoints
 
-## Deploy on Vercel
+#### `POST /posts`
+- **Description:** Create a new blog post with an AI-generated summary.
+- **Request Body:** 
+  ```json
+  {
+    "title": "Post Title",
+    "content": "Full content of the blog post"
+  }
+  ```
+- **Response:** 
+  ```json
+  {
+    "id": "unique-id",
+    "title": "Post Title",
+    "content": "Full content of the blog post",
+    "summary": "AI-generated summary"
+  }
+  ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### `GET /posts`
+- **Description:** Retrieve all blog posts.
+- **Response:** Array of blog post objects.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### `GET /posts/:id`
+- **Description:** Retrieve a specific blog post by its ID.
+- **Response:** Blog post object.
+
+#### `PUT /posts/:id`
+- **Description:** Update a specific blog post.
+- **Request Body:** Same structure as `POST /posts`.
+
+#### `DELETE /posts/:id`
+- **Description:** Delete a specific blog post.
+
+---
+
+## Deployment
+
+This project can be deployed on **Vercel** for the frontend and **Heroku** or **AWS** for the backend.
+
+### Deployment Steps
+
+1. **Frontend:**
+   - Build the frontend for production:
+     ```bash
+     npm run build
+     ```
+   - Deploy using Vercel's CLI or dashboard.
+
+2. **Backend:**
+   - Host the backend server on Heroku or AWS.
+   - Connect the backend to your database.
+
+3. Update the frontend API URLs to point to the hosted backend.
+
+---
+
+## Resources
+
+- **Next.js Documentation:** [https://nextjs.org/docs](https://nextjs.org/docs)
+- **Express.js Documentation:** [https://expressjs.com](https://expressjs.com)
+- **MongoDB Documentation:** [https://www.mongodb.com/docs](https://www.mongodb.com/docs)
+
+---
+
+Feel free to contribute, report issues, or suggest improvements via the GitHub repository!
